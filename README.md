@@ -68,10 +68,3 @@ Data Heavy-Lifters: Pandas and NumPy for processing and complex merging.
 Visualization: Matplotlib and Seaborn for building the market share dashboards.
 
 Environment: Jupyter Notebook.
-
-## 📂 Inside this Repo
-ClaimsAnalysis_WorkingFile.ipynb: Our full analytical journey—from loading the raw data to the final visualizations.
-
-BIA 810 Final Project Statement.docx: The original business case and strategic framework that guided our group.
-
-ClaimsAnalysis_WorkingFile.html: A quick-look version of our results (no code-running required!).
