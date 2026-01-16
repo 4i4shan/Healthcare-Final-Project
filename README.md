@@ -16,14 +16,54 @@ The anesthesia market is booming as the population ages and surgeries become mor
 
 ---
 
-## 💻 My Approach
-I turned raw, messy Medicare data into a strategic roadmap using Python:
+## 🧪 Methodology: How We Solved It
+As a group, we structured our Python workflow into five distinct phases to move from raw data to executive-level insights:
 
-* **Data Wrangling:** I merged multiple years of claims data, cleaned up provider (NPI) records, and mapped zip codes to regional territories to see the "where" behind the "what."
-* **Market Share Engine:** I built a logic to calculate market share not just by sales volume, but by unique patient counts and prescriber loyalty.
-* **Visual Storytelling:** I created 100% stacked bar charts and specialty-based pie charts to make complex market shifts easy to understand at a glance.
-* **Diagnostic Cleaning:** I performed a deep-dive audit of the dataset to identify missing values and ensure the analysis was grounded in high-quality data.
+### 1. Data Consolidation & Engineering
+Since the Medicare claims data was provided in multiple parts, we used the glob library to dynamically read and concatenate all CSV files into a single master DataFrame.
 
+Key Challenge: Handling large-scale data efficiently.
+
+The Solution: We implemented optimized merging strategies to join provider demographics, patient data, and zip-to-territory mappings without losing record integrity.
+
+### 2. The "Data Scrubbing" Phase
+Before any analysis, we performed a thorough diagnostic check:
+
+Handling Nulls: We identified missing NPI (National Provider Identifier) and specialty data.
+
+Normalization: We standardized specialty names and product categories to ensure that "Product 1" and its "Variant" were tracked accurately across different claim formats.
+
+### 3. Multi-Dimensional Market Share Calculation
+We didn't settle for just "Total Sales." To understand the true market shift, we calculated three different versions of Market Share:
+
+Claim Share: Total volume of prescriptions.
+
+Patient Share: The number of unique individuals treated (to see if the variant was being used on the same patients or new ones).
+
+HCP Share: The percentage of healthcare providers actually prescribing the drug.
+
+### 4. Specialty & Geographic Profiling
+We wanted to know who was driving the change. We used Pandas grouping and aggregation to:
+
+Isolate the top 5 medical specialties (Anesthesiology, CRNAs, etc.).
+
+Compare their adoption rates of the variant from 2016 to 2018.
+
+Map these results to four major U.S. Census Regions to identify geographic "blind spots."
+
+### 5. Visual Storytelling (Matplotlib & Seaborn)
+The final phase was turning numbers into a narrative. We built:
+
+100% Stacked Bar Charts: To show the "shrinkage" of Product 1 as the Variant grew.
+
+Comparative Pie Charts: To visualize the prescriber mix for our brands versus competitors like Fentanyl.
+
+## 🛠 Project Architecture
+Data Integration: Cleaning and joining Claims, NPI, Specialty, and Territory data.
+
+Feature Engineering: Creating time-based flags for "Baseline" (2016) and "Post-Launch" (2018) periods.
+
+Statistical Aggregation: Calculating year-over-year percentage growth and cannibalization rates.
 ---
 
 ## 🛠️ The Toolkit
